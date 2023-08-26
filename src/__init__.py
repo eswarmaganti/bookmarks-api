@@ -28,7 +28,8 @@ def create_app(test_config=None):
 
     Swagger(app,config=swagger_config,template=template)
     # creating the tables
-    db.create_all()
+
+    # @app.before_f
 
     @app.get("/<short_url>")
     @swag_from("./docs/short_url.yaml")
