@@ -1,0 +1,36 @@
+Registering new user
+---
+tags:
+  - Authentication
+parameters:
+  - name: body
+    description: body should contain the user data
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "name"
+        - "email"
+        - "password"
+      properties:
+        name:
+          type: string
+          example: "john doe"
+        email:
+          type: "email"
+          example: "user@gmail.com"
+        password:
+          type: "string"
+          format: "password"
+          example: "******"
+responses:
+  201:
+    description: user account successfully created
+
+  400:
+    description: when the register failed due to bad request
+  404:
+    description: the resource requesting is not found
+  500:
+    description: when the request failed due to internal server error
