@@ -27,6 +27,8 @@ def create_app(test_config=None):
     app.register_blueprint(bookmarks)
 
     Swagger(app,config=swagger_config,template=template)
+    # creating the tables
+    db.create_all()
 
     @app.get("/<short_url>")
     @swag_from("./docs/short_url.yaml")
