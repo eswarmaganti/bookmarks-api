@@ -1,0 +1,29 @@
+User login route
+---
+tags:
+  - Authentication
+parameters:
+  - name: body
+    description: the body should contain the user login credentials
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - "email"
+        - "password"
+      properties:
+        email:
+          type: "email"
+          example: "user@gmail.com"
+        password:
+          type: "string"
+          format: "password"
+          example: "********"
+responses:
+  200:
+    description: when a user successfully logged in
+  400:
+    description: when then login failed due to bad request
+  401:
+    description: when a user supplies incorrect credentials
